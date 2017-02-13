@@ -6,30 +6,30 @@ subject
                   4    subject 4
                   5    subject 5
                   6    subject 6
-7    subject 7
-8    subject 8
-9    subject 9
-10  subject 10
-11  subject 11
-12  subject 12
-13  subject 13
-14  subject 14
-15  subject 15
-16  subject 16
-17  subject 17
-18  subject 18
-19  subject 19
-20  subject 20
-21  subject 21
-22  subject 22
-23  subject 23
-24  subject 24
-25  subject 25
-26  subject 26
-27  subject 27
-28  subject 28
-29  subject 29
-30  subject 30
+                  7    subject 7
+                  8    subject 8
+                  9    subject 9
+                  10  subject 10
+                  11  subject 11
+                  12  subject 12
+                  13  subject 13
+                  14  subject 14
+                  15  subject 15
+                  16  subject 16
+                  17  subject 17
+                  18  subject 18
+                  19  subject 19
+                  20  subject 20
+                  21  subject 21
+                  22  subject 22
+                  23  subject 23
+                  24  subject 24
+                  25  subject 25
+                  26  subject 26
+                  27  subject 27
+                  28  subject 28
+                  29  subject 29
+                  30  subject 30
 Activitys 
             The six activities that each person performed
                   WALKING
@@ -39,15 +39,15 @@ Activitys
                   STANDING
                   LAYING
 tBodyAcc-mean()-X
-2 tBodyAcc-mean()-Y
-3 tBodyAcc-mean()-Z
-4 tBodyAcc-std()-X
-5 tBodyAcc-std()-Y
-6 tBodyAcc-std()-Z
-7 tBodyAcc-mad()-X
-8 tBodyAcc-mad()-Y
-9 tBodyAcc-mad()-Z
-10 tBodyAcc-max()-X
+tBodyAcc-mean()-Y
+tBodyAcc-mean()-Z
+tBodyAcc-std()-X
+tBodyAcc-std()-Y
+tBodyAcc-std()-Z
+tBodyAcc-mad()-X
+tBodyAcc-mad()-Y
+tBodyAcc-mad()-Z
+tBodyAcc-max()-X
 1tBodyAcc-max()-Y
 12 tBodyAcc-max()-Z
 13 tBodyAcc-min()-X
