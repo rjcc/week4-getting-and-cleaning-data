@@ -3,7 +3,7 @@ file_list <- list.files(pattern="*.txt")
 file_list<-grep("[read]",file_list,value = TRUE)
 #read features file
 features<-read.table("features.txt",header = FALSE)
-#read activities names file
+#reading the files in the folder with read.table
 activitys_names<-read.table("activiy_labels.txt", header = FALSE)
 features_train<-read.table("./train/X_train.txt",header = FALSE)
 activitys_train<-read.table("./train/Y_train.txt",header=FALSE)
@@ -29,24 +29,32 @@ bodyGyroZ_test<-read.table("./test/Inertial Signals/body_gyro_z_test.txt",header
 totalAccX_test<-read.table("./test/Inertial Signals/total_acc_x_test.txt",header=FALSE)
 totalAccY_test<-read.table("./test/Inertial Signals/total_acc_y_test.txt",header=FALSE)
 totalAccZ_test<-read.table("./test/Inertial Signals/total_acc_z_test.txt",header=FALSE)
+#rename colomuns in train set
 names(features_train)<-features$V2
+#rename colomuns in test set
 names(features_test)<-features$V2
+#rename colomun in activitys set in train
 names(activitys_train)<-"activitys"
+#rename colomun in activitys set in test
 names(activitys_test)<-"activitys"
+#rename colomun in subject set in train
 names(subjects_train)<-"subject"
+#rename colomun in subject set in test
 names(subject_test)<-"subject"
+# add subject and acitivitys sets to train set
 sub_act_feat_train=cbind(subjects_train,activitys_train,features_train)
+# add subject and acitivitys sets to test set
 sub_act_feat_test=cbind(subjects_test,activitys_test,features_test)
-#question 1
+#question 1 : subActFeatures_both is the merges the training and the test sets
 subActFeatures_both<-rbind(sub_act_feat_train,sub_act_feat_test)
-#question 2
+#question 2 subActMeanStd is extraction from subActFeatures_both on the mean and standard deviation for each measurement
 subActMeanStd_both<-subActFeatures_both%>%select(matches('mean|std'))
-#question 3
+#question 3 : subActFeatures_both with descriptive activies names
 subActFeatures_both_descAct<-subActFeatures_both%>% 
   arrange(activitys) %>% 
   mutate(activitys = as.character(factor(activitys, levels=1:6, 
                                   labels= activitys_names$V2)))
-#question 4
+#question 4 :data set with descriptive variable names.
 names(subActFeatures_both)<-gsub("tBodyAcc-","Body acceleration signal in time domain (from the accelerometer)",names(subActFeatures_both))
 names(subActFeatures_both)<-gsub("tBodyAccMag-","Body acceleration signal in time domain applied to Fast Fourier Transform(from the accelerometer)",names(subActFeatures_both))
 names(subActFeatures_both)<-gsub("tBodyAccJerk-","Body acceleration jerk signal in time domain (from the accelerometer)",names(subActFeatures_both))
@@ -64,5 +72,5 @@ names(subActFeatures_both)<-gsub("fBodyGyro-","Body acceleration signal in frequ
 names(subActFeatures_both)<-gsub("fBodyAccJerkMag-","Body acceleration jerk signal in frequence domain applied to Fast Fourrier Transform (from the accelerometer)",names(subActFeatures_both))
 names(subActFeatures_both)<-gsub("fBodyGyroMag-","Body acceleration signal in frequence domain applied to Fast Fourier Transform (from the gyroscope)",names(subActFeatures_both))
 
-#question 5
-new_tidydata<-whole_both_descAct%>%group_by(activitys,subject)%>%summarise_all(mean)
+#question 5 :tidy data set with the average of each variable for each activity and each subject
+tidydata<-subActFeatures_both_descAct%>%group_by(activitys,subject)%>%summarise_all(mean)
