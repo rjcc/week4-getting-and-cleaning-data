@@ -2,6 +2,7 @@
 file_list <- list.files(pattern="*.txt")
 file_list<-grep("[read]",file_list,value = TRUE)
 #read features file
+
 features<-read.table("features.txt",header = FALSE)
 #reading the files in the folder with read.table
 activitys_names<-read.table("activiy_labels.txt", header = FALSE)
