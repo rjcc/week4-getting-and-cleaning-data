@@ -1,3 +1,6 @@
+Codebook of the project
+==================================
+````
 subject 
             The group of 30 volunteers who carried out the experiment
                   1  . subject 1
@@ -599,3 +602,4 @@ tBodyAcc-max()-X
 559 angle(X,gravityMean)
 560 angle(Y,gravityMean)
 561 angle(Z,gravityMean)
+````
