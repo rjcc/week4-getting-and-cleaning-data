@@ -78,6 +78,8 @@ names(subActFeatures_both_descAct)<-gsub("fBodyAccJerk-","Body acceleration jerk
 names(subActFeatures_both_descAct)<-gsub("fBodyGyro-","Body acceleration signal in frequence domain (from the gyroscope)",names(subActFeatures_both_descAct))
 names(subActFeatures_both_descAct)<-gsub("fBodyAccJerkMag-","Body acceleration jerk signal in frequence domain applied to Fast Fourrier Transform (from the accelerometer)",names(subActFeatures_both_descAct))
 names(subActFeatures_both_descAct)<-gsub("fBodyGyroMag-","Body acceleration signal in frequence domain applied to Fast Fourier Transform (from the gyroscope)",names(subActFeatures_both_descAct))
-
+names(subActFeatures_both_descAct)<-gsub("mean()", "MEAN", names(subActFeatures_both_descAct))
+names(subActFeatures_both_descAct)<-gsub("std()", "SD", names(subActFeatures_both_descAct))
 #question 5 :tidy data set with the average of each variable for each activity and each subject
 tidydata<-subActFeatures_both_descAct%>%group_by(subject,activitys)%>%summarise_all(mean)
+write.table(tidydata, "TidyData.txt", row.name=FALSE)
