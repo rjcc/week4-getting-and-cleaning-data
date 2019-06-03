@@ -2,7 +2,7 @@ urll<-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%
 #destination zip
 destfile<-paste0(getwd(),"/","dataweek4.zip")
 #download zip file
-download.file(urll,destfile,method = curl)
+download.file(urll,destfile,method = "curl")
 #unzip file
 unzip("dataweek4.zip",list = TRUE)
 
