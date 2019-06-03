@@ -11,7 +11,7 @@ library(dplyr)
 library(data.table)
 features<-read.table("features.txt",header = FALSE)
 #reading the files in the folder with read.table
-activitys_names<-read.table("activiy_labels.txt", header = FALSE)
+activitys_names<-read.table("activity_labels.txt", header = FALSE)
 features_train<-read.table("./train/X_train.txt",header = FALSE)
 activitys_train<-read.table("./train/Y_train.txt",header=FALSE)
 subjects_train<-read.table("./train/subject_train.txt",header=FALSE)
